@@ -282,3 +282,33 @@ var drawArray = [
   frame2,
   frame1
 ];
+
+// nouveau code içi //
+
+const dialog = document.getElementById("dialog");
+const fermerDialog = document.getElementById("fermerDialog");
+const nePlusAfficher = document.getElementById("nePlusAfficher");
+
+if(localStorage.getItem('afficher') === null){
+  localStorage.setItem('afficher','oui');
+}
+
+
+if(localStorage.getItem('afficher') === 'oui'){
+  window.onload = function afficherDialog() {
+    dialog.showModal();
+  };
+}
+
+
+
+
+fermerDialog.addEventListener("click", () => {
+  dialog.close();
+});
+
+nePlusAfficher.addEventListener("click", () => {
+  localStorage.removeItem('afficher');
+  localStorage.setItem('afficher','non');
+  dialog.close();
+});
