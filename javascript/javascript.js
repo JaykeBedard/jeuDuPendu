@@ -175,7 +175,7 @@ function init() {
   livesDisplay.innerHTML = `Tu as ${life} vies!`;
 
   //code ajouter
-  viesUtilisersDisplay.innerHTML = `Tu as utilieser ${viesUtilisers} vies au total `;
+  viesUtilisersDisplay.innerHTML = `Tu as utilisé ${viesUtilisers} vies au total `;
 
   partiesFaits = (parseInt(partiesFaits, 10) + 1); 
   
@@ -229,7 +229,7 @@ function guess(event) {
         viesUtilisers = (parseInt(viesUtilisers, 10) + 1); 
         localStorage.removeItem('vieUtiliser');
         localStorage.setItem('vieUtiliser',viesUtilisers);
-        viesUtilisersDisplay.innerHTML = `Tu as utilieser ${viesUtilisers} vies au total `;
+        viesUtilisersDisplay.innerHTML = `Tu as utilisé ${viesUtilisers} vies au total `;
         //fin code ajouter
 
         counter = 0;
@@ -378,7 +378,12 @@ if(localStorage.getItem('afficher') === null){
 }
 
 if(localStorage.getItem('afficher') === 'oui'){
-  window.onload = function afficherDialog() {
+  
+  window.onload = 
+  /**
+   * afiche la boite de dialogue pardessus la fenêtre
+   */
+  function afficherDialog() {
     dialog.showModal();
   };
 }
