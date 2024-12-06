@@ -87,7 +87,7 @@ body {
   /* nouveau code içi */
 
   #dialog::backdrop {
-    background-color: rgba(93, 188, 251, 1);
+    background-color: rgba(93, 188, 251, 0.5);
   }
 
   #dialog[open]{
@@ -99,7 +99,7 @@ body {
     margin-top: 30px;
     border-radius: 20px;
     border: 1px solid #4276e6;
-    box-shadow: 0px 0px 16px 0px rgba(66,118,230,1);
+    box-shadow: 0px 0px 16px 0px rgba(93, 188, 251, 0.5);
   }
 
   #titre {

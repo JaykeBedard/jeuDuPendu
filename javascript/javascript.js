@@ -13,6 +13,34 @@ const livesDisplay = document.getElementById("mylives");
 var myStickman = document.getElementById("stickman");
 var context = myStickman.getContext("2d");
 
+// code ajouter
+if(localStorage.getItem('vieUtiliser') === null){
+  localStorage.setItem('vieUtiliser','0');
+}
+
+if(localStorage.getItem('partieFait') === null){
+  localStorage.setItem('partieFait','0');
+}
+
+if(localStorage.getItem('partieGagner') === null){
+  localStorage.setItem('partieGagner','0');
+}
+
+if(localStorage.getItem('partiePerdu') === null){
+  localStorage.setItem('partiePerdu','0');
+}
+
+var viesUtilisers = localStorage.getItem('vieUtiliser')
+var partiesFaits = localStorage.getItem('partieFait')
+var patriesGagners = localStorage.getItem('partieGagner')
+var partiesPerdus = localStorage.getItem('partiePerdu')
+
+const partiesFaitsDisplay = document.getElementById("partieJouer");
+const partiesPerdusDisplay = document.getElementById("partiePerdu");
+const patriesGagnersDisplay = document.getElementById("partieGagner");
+const viesUtilisersDisplay = document.getElementById("vieUtiliser");
+//fin du code ajouter
+
 //generate alphabet button
 function generateButton() {
   var buttonsHTML = "abcdefghijklmnopqrstuvwxyz"
@@ -145,6 +173,23 @@ function init() {
   canvas();
   containerHint.innerHTML = `Indice -`;
   livesDisplay.innerHTML = `Tu as ${life} vies!`;
+
+  //code ajouter
+  viesUtilisersDisplay.innerHTML = `Tu as utilieser ${viesUtilisers} vies au total `;
+
+  partiesFaits = (parseInt(partiesFaits, 10) + 1); 
+  
+  localStorage.removeItem('partieFait');
+  
+  localStorage.setItem('partieFait',partiesFaits);
+  
+  partiesFaitsDisplay.innerHTML = `Tu as fait ${partiesFaits} parties `;
+  
+  patriesGagnersDisplay.innerHTML = `Tu as gagner ${patriesGagners} parties`;
+  
+  partiesPerdusDisplay.innerHTML = `Tu as perdus ${partiesPerdus} parties `;
+  //fin code ajouter
+
   setAnswer();
   container.innerHTML = generateButton();
   container.addEventListener("click", handleClick);
@@ -179,6 +224,14 @@ function guess(event) {
       }
       if (counter === 0) {
         life -= 1;
+
+        //code ajouter
+        viesUtilisers = (parseInt(viesUtilisers, 10) + 1); 
+        localStorage.removeItem('vieUtiliser');
+        localStorage.setItem('vieUtiliser',viesUtilisers);
+        viesUtilisersDisplay.innerHTML = `Tu as utilieser ${viesUtilisers} vies au total `;
+        //fin code ajouter
+
         counter = 0;
         animate();
       } else {
@@ -190,6 +243,12 @@ function guess(event) {
         livesDisplay.innerHTML = `Tu as ${life} vie!`;
       } else {
         livesDisplay.innerHTML = `JEU TERMINÉ!`;
+
+        //code ajouter
+        partiesPerdus = (parseInt(partiesPerdus, 10) + 1); 
+        localStorage.removeItem('partiePerdu');
+        localStorage.setItem('partiePerdu',partiesPerdus);
+        //fin code ajouter
       }
     } else {
       return;
@@ -199,6 +258,15 @@ function guess(event) {
     //console.log(life);
     if (answer === winningCheck) {
       livesDisplay.innerHTML = `TU AS GAGNÉ!`;
+      
+    //code ajouter 
+    patriesGagners = (parseInt(patriesGagners, 10) + 1); 
+  
+    localStorage.removeItem('partieGagner');
+  
+    localStorage.setItem('partieGagner',patriesGagners);
+    //fin code ajouter
+    
       return;
     }
   }
@@ -289,19 +357,31 @@ const dialog = document.getElementById("dialog");
 const fermerDialog = document.getElementById("fermerDialog");
 const nePlusAfficher = document.getElementById("nePlusAfficher");
 
+if(localStorage.getItem('vieUtiliser') === null){
+  localStorage.setItem('vieUtiliser','0');
+}
+
+if(localStorage.getItem('partieFait') === null){
+  localStorage.setItem('partieFait','0');
+}
+
+if(localStorage.getItem('partieGagner') === null){
+  localStorage.setItem('partieGagner','0');
+}
+
+if(localStorage.getItem('partiePerdu') === null){
+  localStorage.setItem('partiePerdu','0');
+}
+
 if(localStorage.getItem('afficher') === null){
   localStorage.setItem('afficher','oui');
 }
-
 
 if(localStorage.getItem('afficher') === 'oui'){
   window.onload = function afficherDialog() {
     dialog.showModal();
   };
 }
-
-
-
 
 fermerDialog.addEventListener("click", () => {
   dialog.close();
