@@ -1,7 +1,7 @@
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
       Helvetica, Arial, "Lucida Grande", sans-serif;
-    background-color: #c1d72e;
+    background-color: #002b6b;
     color: white;
     text-align: center;
     height: 100%;
@@ -40,7 +40,7 @@ body {
   }
   
   Button {
-    background: #c1d72e;
+    background: #002b6b;
     border-radius: 5px;
     border: solid 1px white;
     color: white;
@@ -51,20 +51,20 @@ body {
   }
   Button:hover {
     transition: 0.5s;
-    background: white;
+    background: black;
     border: solid 1px white;
-    color: #c1d72e;
+    color: #002b6b;
   }
   
   .selected {
-    background: white;
+    background: rgb(0, 115, 203);
     border: solid 1px white;
-    color: #c1d72e;
+    color: #002b6b;
   }
   
   .btn-2 {
     border-radius: 10px;
-    background: #c1d72e;
+    background: #002b6b;
     color: white;
     border: solid 1px white;
     text-decoration: none;
@@ -79,9 +79,9 @@ body {
   }
   .btn-2:hover {
     transition: 0.5s;
-    background: white;
+    background: black;
     border: solid 1px white;
-    color: #c1d72e;
+    color: #002b6b;
   }
 
   /* nouveau code içi */
